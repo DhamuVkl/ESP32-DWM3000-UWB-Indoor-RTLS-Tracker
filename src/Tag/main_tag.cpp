@@ -20,9 +20,9 @@ bool wifiConnected = false;
 #define FIRST_ANCHOR_ID 1 // Starting ID for anchors (1, 2, 3, ...)
 
 // Ranging Configuration
-#define FILTER_SIZE 50 // For median filter
+#define FILTER_SIZE 30 // For median filter
 #define MIN_DISTANCE 0
-#define MAX_DISTANCE 10000.0
+#define MAX_DISTANCE 1000.0
 
 // UWB Configuration
 #define LEN_RX_CAL_CONF 4
