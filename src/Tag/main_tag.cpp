@@ -6,7 +6,7 @@
 const char *ssid = "Semicon Media";
 const char *password = "cracksen1605";
 const char *host = "192.168.29.64"; // Your PC's IP address
-const int port = 12345;             // Choose a port number
+const int port = 7007;             // Choose a port number
 WiFiClient client;
 bool wifiConnected = false;
 
