@@ -30,21 +30,21 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "C:/Users/sdham/Documents/#Work_Semicon/DWM3000/Doc/ESP32-DWM3000 UWB Indoor Tracker/.pio/build/tag/firmware.elf",
-            "projectEnvName": "tag",
+            "executable": "C:/Users/sdham/Documents/#Work_Semicon/DWM3000/Doc/ESP32-DWM3000 UWB Indoor Tracker/.pio/build/anchor/firmware.elf",
+            "projectEnvName": "anchor",
             "toolchainBinDir": "C:/Users/sdham/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart",
             "preLaunchTask": {
                 "type": "PlatformIO",
-                "task": "Pre-Debug (tag)"
+                "task": "Pre-Debug (anchor)"
             }
         },
         {
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "C:/Users/sdham/Documents/#Work_Semicon/DWM3000/Doc/ESP32-DWM3000 UWB Indoor Tracker/.pio/build/tag/firmware.elf",
-            "projectEnvName": "tag",
+            "executable": "C:/Users/sdham/Documents/#Work_Semicon/DWM3000/Doc/ESP32-DWM3000 UWB Indoor Tracker/.pio/build/anchor/firmware.elf",
+            "projectEnvName": "anchor",
             "toolchainBinDir": "C:/Users/sdham/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart"
         },
@@ -52,8 +52,8 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (without uploading)",
-            "executable": "C:/Users/sdham/Documents/#Work_Semicon/DWM3000/Doc/ESP32-DWM3000 UWB Indoor Tracker/.pio/build/tag/firmware.elf",
-            "projectEnvName": "tag",
+            "executable": "C:/Users/sdham/Documents/#Work_Semicon/DWM3000/Doc/ESP32-DWM3000 UWB Indoor Tracker/.pio/build/anchor/firmware.elf",
+            "projectEnvName": "anchor",
             "toolchainBinDir": "C:/Users/sdham/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart",
             "loadMode": "manual"
