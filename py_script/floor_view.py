@@ -8,7 +8,7 @@ from scipy.optimize import least_squares
 import json
 
 # ---------------- CONFIGURATION ---------------- #
-HOST = "192.168.29.64"  # Your PC's IP address
+HOST = "192.168.xx.xx"  # Your PC's IP address
 PORT = 7007  # Must match ESP32 port
 ANCHOR_POSITIONS = np.array(
     [[15, 5], [290, 5], [165, 625]]  # Anchor 1  # Anchor 2  # Anchor 3

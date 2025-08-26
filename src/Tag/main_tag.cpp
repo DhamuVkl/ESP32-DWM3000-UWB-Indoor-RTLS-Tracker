@@ -3,9 +3,9 @@
 #include <WiFiClient.h>
 
 // WiFi Configuration
-const char *ssid = "Semicon Media";
-const char *password = "cracksen1605";
-const char *host = "192.168.29.64"; // Your PC's IP address
+const char *ssid = "Sxxxxxxxx";
+const char *password = "cxxxxxxxx";
+const char *host = "192.168.xxx.xx"; // Your PC's IP address
 const int port = 7007;             // Choose a port number
 WiFiClient client;
 bool wifiConnected = false;
