@@ -97,7 +97,7 @@ Update the `ANCHOR_POSITIONS` array in your Python script to match your room lay
 ### 2. Firmware Installation
 ```bash
 # Clone the repository
-https://github.com/DhamuVkl/ESP32-DWM3000-UWB-Indoor-RTLS-Tracker.git
+https://github.com/Circuit-Digest/ESP32-DWM3000-UWB-Indoor-RTLS-Tracker.git
 cd ESP32-DWM3000-UWB-Indoor-RTLS-Tracker
 
 # Flash anchor firmware to 3 ESP32s (set unique ANCHOR_ID for each)
