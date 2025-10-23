@@ -4,7 +4,7 @@
 
 [![Hardware](https://img.shields.io/badge/Hardware-ESP32%20%2B%20DWM3000-blue)](https://github.com)
 
-Article Link: [How to Build a Real-Time Indoor Position Tracking System using ESP32 & Qorvo DWM3000 UWB Modules](https://circuitdigest.com/)
+Article Link: [How to Build a Real-Time Indoor Position Tracking System using ESP32 & Qorvo DWM3000 UWB Modules](https://circuitdigest.com/microcontrollers-projects/diy-indoor-uwb-positioning-system-using-esp32-and-qorvo-dwm3000)
 
 ## 🚀 Overview
 
