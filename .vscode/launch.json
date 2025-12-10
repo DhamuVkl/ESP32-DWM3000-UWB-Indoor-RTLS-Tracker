@@ -7,7 +7,7 @@
 
 {
     "version": "0.2.0",
-    "configurations": [     
+    "configurations": [
         {
             "name": "Run floor_view.py",
             "type": "debugpy",
