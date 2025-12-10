@@ -7,22 +7,22 @@
 
 {
     "version": "0.2.0",
-    "configurations": [
+    "configurations": [     
         {
-            "name": "Run floor_view.py (spd-py)",
+            "name": "Run floor_view.py",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/py_script/floor_view.py",
-            "python": "C:/Users/sdham/anaconda3/envs/spd-py/python.exe",
+            "python": "${command:python.interpreterPath}",
             "console": "integratedTerminal",
             "justMyCode": true
         },
         {
-            "name": "Run tcp_socket.py (spd-py)",
+            "name": "Run tcp_socket.py",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/py_script/tcp_socket.py",
-            "python": "C:/Users/sdham/anaconda3/envs/spd-py/python.exe",
+            "python": "${command:python.interpreterPath}",
             "console": "integratedTerminal",
             "justMyCode": true
         },
@@ -30,7 +30,7 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "C:/Users/sdham/Documents/#Work_Semicon/DWM3000/Doc/ESP32-DWM3000 UWB Indoor Tracker/.pio/build/anchor/firmware.elf",
+            "executable": "C:/Users/sdham/Documents/Work_Semicon/DWM3000/Code/UWB/ESP32-DWM3000-UWB-Indoor-RTLS-Tracker/.pio/build/anchor/firmware.elf",
             "projectEnvName": "anchor",
             "toolchainBinDir": "C:/Users/sdham/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart",
@@ -43,7 +43,7 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "C:/Users/sdham/Documents/#Work_Semicon/DWM3000/Doc/ESP32-DWM3000 UWB Indoor Tracker/.pio/build/anchor/firmware.elf",
+            "executable": "C:/Users/sdham/Documents/Work_Semicon/DWM3000/Code/UWB/ESP32-DWM3000-UWB-Indoor-RTLS-Tracker/.pio/build/anchor/firmware.elf",
             "projectEnvName": "anchor",
             "toolchainBinDir": "C:/Users/sdham/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart"
@@ -52,7 +52,7 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (without uploading)",
-            "executable": "C:/Users/sdham/Documents/#Work_Semicon/DWM3000/Doc/ESP32-DWM3000 UWB Indoor Tracker/.pio/build/anchor/firmware.elf",
+            "executable": "C:/Users/sdham/Documents/Work_Semicon/DWM3000/Code/UWB/ESP32-DWM3000-UWB-Indoor-RTLS-Tracker/.pio/build/anchor/firmware.elf",
             "projectEnvName": "anchor",
             "toolchainBinDir": "C:/Users/sdham/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart",
