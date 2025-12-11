@@ -1771,7 +1771,7 @@ void loop()
     t_replyB = 0;
     last_ranging_time = millis(); // Reset timeout timer
 
-    if (rx_status = DWM3000.receivedFrameSucc())
+    if (rx_status = DWM3000.receivedFrameSucc())  // Check Poll Received
     {
       DWM3000.clearSystemStatus();
       if (rx_status == 1)
@@ -1795,7 +1795,7 @@ void loop()
           }
           else
           {
-            curr_stage = 1;
+            curr_stage = 1; // Move to send response
           }
         }
         else
@@ -1824,18 +1824,18 @@ void loop()
     break;
 
   case 1: // Ranging received. Sending response
-    DWM3000.ds_sendFrame(2);
+    DWM3000.ds_sendFrame(2);  // Sends "Response" (Stage 2)
 
-    rx = DWM3000.readRXTimestamp();
-    tx = DWM3000.readTXTimestamp();
+    rx = DWM3000.readRXTimestamp(); // Reads T2 (Time Poll Arrived)
+    tx = DWM3000.readTXTimestamp(); // Reads T3 (Time Response Sent)
 
-    t_replyB = tx - rx;
-    curr_stage = 2;
+    t_replyB = tx - rx; // Calculates t_replyB (T3 - T2)
+    curr_stage = 2; // Move to wait for Final
     last_ranging_time = millis(); // Reset timeout timer
     break;
 
   case 2: // Awaiting response
-    if (rx_status = DWM3000.receivedFrameSucc())
+    if (rx_status = DWM3000.receivedFrameSucc())  // Check Final Received
     {
       retry_count = 0; // Reset on successful response
       DWM3000.clearSystemStatus();
@@ -1857,7 +1857,7 @@ void loop()
         }
         else
         {
-          curr_stage = 3;
+          curr_stage = 3; // Move to calculate and report
         }
       }
       else
@@ -1881,11 +1881,11 @@ void loop()
     break;
 
   case 3: // Second response received. Sending information frame
-    rx = DWM3000.readRXTimestamp();
-    t_roundB = rx - tx;
-    DWM3000.ds_sendRTInfo(t_roundB, t_replyB);
+    rx = DWM3000.readRXTimestamp(); // Reads T6 (Time Final Arrived)
+    t_roundB = rx - tx; // Calculate Anchor's Round Trip: (Time Final Arrived - Time Response Sent)
+    DWM3000.ds_sendRTInfo(t_roundB, t_replyB);  // Sends DATA packet containing these two integers
 
-    curr_stage = 0;
+    curr_stage = 0; // Reset for next ranging
     DWM3000.standardRX();
     break;
 

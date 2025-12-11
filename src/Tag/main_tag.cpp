@@ -1436,13 +1436,13 @@ void loop()
         currentAnchor->t_replyA = 0;
 
         DWM3000.setDestinationID(currentAnchorId);
-        DWM3000.ds_sendFrame(1);
-        currentAnchor->tx = DWM3000.readTXTimestamp();
-        curr_stage = 1;
+        DWM3000.ds_sendFrame(1);    // Sends "Poll" (Stage 1)
+        currentAnchor->tx = DWM3000.readTXTimestamp(); // Saves T1 (Time Sent)
+        curr_stage = 1; // Move to wait for response
         break;
 
     case 1: // Await first response
-        if (rx_status = DWM3000.receivedFrameSucc())
+        if (rx_status = DWM3000.receivedFrameSucc())    // Response Received
         {
             DWM3000.clearSystemStatus();
             if (rx_status == 1)
@@ -1467,7 +1467,7 @@ void loop()
                 }
                 else
                 {
-                    curr_stage = 2;
+                    curr_stage = 2; // Move to send Final
                 }
             }
             else
@@ -1480,18 +1480,17 @@ void loop()
         break;
 
     case 2: // Response received. Send second ranging
-        currentAnchor->rx = DWM3000.readRXTimestamp();
-        DWM3000.ds_sendFrame(3);
+        currentAnchor->rx = DWM3000.readRXTimestamp();  // Reads T4 (Time Response Arrived)
+        DWM3000.ds_sendFrame(3);    // Sends "Final" (Stage 3)
+        currentAnchor->t_roundA = currentAnchor->rx - currentAnchor->tx;    // Calculate Tag's Round Trip: (Time Response Arrived - Time Poll Sent)
+        currentAnchor->tx = DWM3000.readTXTimestamp();  // Reads T5 (Time Final Sent)
+        currentAnchor->t_replyA = currentAnchor->tx - currentAnchor->rx;    // Calculate Tag's Reply Time: (Time Final Sent - Time Response Arrived)
 
-        currentAnchor->t_roundA = currentAnchor->rx - currentAnchor->tx;
-        currentAnchor->tx = DWM3000.readTXTimestamp();
-        currentAnchor->t_replyA = currentAnchor->tx - currentAnchor->rx;
-
-        curr_stage = 3;
+        curr_stage = 3; // Move to wait for Report
         break;
 
     case 3: // Await second response
-        if (rx_status = DWM3000.receivedFrameSucc())
+        if (rx_status = DWM3000.receivedFrameSucc())    // Report Received
         {
             DWM3000.clearSystemStatus();
             if (rx_status == 1)
@@ -1505,7 +1504,7 @@ void loop()
                 else
                 {
                     currentAnchor->clock_offset = DWM3000.getRawClockOffset();
-                    curr_stage = 4;
+                    curr_stage = 4; // Move to calculation
                 }
             }
             else
@@ -1520,10 +1519,10 @@ void loop()
     case 4: // Response received. Calculating results
     {
         int ranging_time = DWM3000.ds_processRTInfo(
-            currentAnchor->t_roundA,
-            currentAnchor->t_replyA,
-            DWM3000.read(0x12, 0x04),
-            DWM3000.read(0x12, 0x08),
+            currentAnchor->t_roundA,    // Calculated locally in Phase 3
+            currentAnchor->t_replyA,    // Calculated locally in Phase 3
+            DWM3000.read(0x12, 0x04),   // Read from Report Packet (Bytes 4-7)
+            DWM3000.read(0x12, 0x08),   // Read from Report Packet (Bytes 8-11)
             currentAnchor->clock_offset);
 
         currentAnchor->distance = DWM3000.convertToCM(ranging_time);
