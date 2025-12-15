@@ -2,7 +2,7 @@ import socket
 import threading
 
 # ---------------- CONFIGURATION ---------------- #
-HOST = "192.168.29.64"  # Your PC's IP address
+HOST = "192.1xx.xx.xx"  # Your PC's IP address
 PORT = 7007  # Must match ESP32 port
 # ----------------------------------------------- #
 
